@@ -32,9 +32,9 @@ export const getUser = async (userId: string) => {
 
         return parseStringify(user);
     } catch (error) {
-        console.log("An error occurred while retrieving the user details:",error);
+        console.log(error)
     }
-};
+}
 
 export const registerPatient = async ({ identificationDocument, ...patient}:
     RegisterUserParams) => {
