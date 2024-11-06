@@ -78,3 +78,5 @@ export const registerPatient = async ({ identificationDocument, ...patient}:
             console.log(error);
         }
     }
+
+    

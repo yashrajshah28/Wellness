@@ -122,7 +122,7 @@ const AppointmentForm = ({
         {type === 'create' && <section className="mb-12 space-y-4">
           <h1 className="heder">New Appointment 👋🏻</h1>
           <p className="text-dark-700">
-            Request your appointment in 10 seconds.
+            Request your appointment.
           </p>
         </section>}
 

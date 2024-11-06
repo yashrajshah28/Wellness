@@ -10,6 +10,7 @@ import { useState } from "react";
 import { UserFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/patient.actions";
+import { Controller } from "react-hook-form";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -46,7 +47,7 @@ const PatientForm = () => {
       const userData = { name, email, phone };
       const user = await createUser(userData);
 
-      if(user) router.push(`/patients/${user.$id}/register`)
+      if (user) router.push(`/patients/${user.$id}/register`);
     } catch (error) {
       console.log(error);
     }
@@ -84,6 +85,27 @@ const PatientForm = () => {
           label="Phone number"
           placeholder="(999) 123-4567"
         />
+
+        {/* <Controller
+          name="phone"
+          control={form.control}
+          rules={{
+            required: "Phone number is required",
+            pattern: {
+              value: /^\d{10}$/,
+              message: "Phone number must be exactly 10 digits",
+            },
+          }}
+          render={({ field, fieldState: { error } }) => (
+            <CustomFormField
+              fieldType={FormFieldType.PHONE_INPUT}
+              {...field}
+              label="Phone number"
+              placeholder="(999) 123-4567"
+              error={error?.message}
+            />
+          )}
+        /> */}
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
